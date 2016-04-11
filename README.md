@@ -11,12 +11,12 @@ TKDotSegment 是一个带有圆点动画的 segment, 之前有写过这个效果
 |titles|选项标题|segment title|
 |numOfDot|圆点数目| dot count|
 |dotDiameter|圆点直径|dot diameter|
-|dotSpace|选项标题|dot space|
+|dotSpace|圆点间距(负数则自动计算)|dot space(automatic calculation when value is a positive number)|
 |dotColor|圆点颜色|dot color|
 |selectTitleColor|标题被选中时的颜色|The color of the title is selected|
 |unSelectTitleColor|标题未被选中时的颜色|The color of the title is not selected|
 |titleFont|标题字体|The  font of the title |
-|PLDot|圆点(可重写drawRect来自定义形状)|an override drawRect to customize shape|
+|PLDot|圆点(可重写drawRect来自定义形状)|Override drawRect to customize shape|
 
 
 ---
