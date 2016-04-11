@@ -37,3 +37,10 @@ TKDotSegmentAction = (index: Int,  internaliFlag: Bool) -> Void
 
 `internaliFlag` 是否内部点击触发的标志位 (event by click flag)
 
+3. 自定义圆点形状(Custom dot shape)
+
+重写`PLDot` 的 `drawRect` 方法就可以了
+
+Overwrite the ` drawRect`  of ` PLDot ` 
+
+
