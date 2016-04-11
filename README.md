@@ -2,8 +2,7 @@
 
 TKDotSegment is a segment with dot animation
 
-TKDotSegment 是一个带有圆点动画的 segment, 之前有写过这个效果但是没有封装, 今天刚好顺手封装一下.
-可以自定义圆点数量,颜色,和形状.
+TKDotSegment 是一个带有圆点动画的 segment, 之前有写过这个效果但是没有封装, 今天刚好顺手封装一下.两百多行代码, 初学者可以拿来当封装控件的参考.可以自定义圆点数量,颜色,和形状.
 
 ![image](https://raw.githubusercontent.com/TBXark/TKDotSegment/master/demo.gif)
 
@@ -17,6 +16,7 @@ TKDotSegment 是一个带有圆点动画的 segment, 之前有写过这个效果
 |selectTitleColor|标题被选中时的颜色|The color of the title is selected|
 |unSelectTitleColor|标题被未选中时的颜色|The color of the title is not selected|
 |titleFont|标题字体|The  font of the title |
+|PLDot|圆点(可重写drawRect来自定义形状)|an override drawRect to customize shape|
 
 
 ---
