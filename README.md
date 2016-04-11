@@ -1,8 +1,11 @@
 ## TKDotSegment
-TKDotSegment 是一个带有圆点动画的 segment
+
+TKDotSegment is a segment with dot animation
 
 TKDotSegment 是一个带有圆点动画的 segment, 之前有写过这个效果但是没有封装, 今天刚好顺手封装一下.
 可以自定义圆点数量,颜色,和形状.
+
+![image](https://raw.githubusercontent.com/TBXark/TKDotSegment/master/demo.gif)
 
 |变量名|描述|Description|
 |---|---|---|
