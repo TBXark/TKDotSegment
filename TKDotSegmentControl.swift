@@ -182,7 +182,7 @@ extension TKDotSegmentControl {
     }
     
     func changeSelectedIndex(index: Int, animate: Bool = true) {
-        changeSelectedIndex(index, animate: animate)
+        changeSelectedIndex(index, internaliFlag: false, animate: true)
     }
     
     
