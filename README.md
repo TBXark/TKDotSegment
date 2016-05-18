@@ -44,3 +44,7 @@ TKDotSegmentAction = (index: Int,  internaliFlag: Bool) -> Void
 Overwrite the ` drawRect`  of ` PLDot ` 
 
 
+
+## CooaPod
+
+` pod 'TKDotSegment', '~> 1.0.0'`
