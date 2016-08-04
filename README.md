@@ -1,16 +1,65 @@
 # TKDotSegment
+> A segment with dot animation
+
+[![Swift Version][swift-image]][swift-url]
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/TBXark/TKDotSegment/master/LICENSE)
 [![CocoaPods](http://img.shields.io/cocoapods/v/TKDotSegment.svg?style=flat)](http://cocoapods.org/?q= TKDotSegment)
 [![CocoaPods](http://img.shields.io/cocoapods/p/TKDotSegment.svg?style=flat)](http://cocoapods.org/?q= TKDotSegment)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 
----
 
-TKDotSegment is a segment with dot animation
+![](demo.gif)
 
-TKDotSegment 是一个带有圆点动画的 segment, 之前有写过这个效果但是没有封装, 今天刚好顺手封装一下.两百多行代码, 初学者可以拿来当封装控件的参考.可以自定义圆点数量,颜色,和形状.
+## Requirements
 
-![image](https://raw.githubusercontent.com/TBXark/TKDotSegment/master/demo.gif)
+- iOS 8.0+
+- Xcode 7.3
+
+## Installation
+
+#### CocoaPods
+You can use [CocoaPods](http://cocoapods.org/) to install `TKDotSegment` by adding it to your `Podfile`:
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+pod 'TKDotSegment'
+```
+
+To get the full benefits import `TKDotSegment` wherever you import UIKit
+
+``` swift
+import UIKit
+import TKDotSegment
+```
+#### Carthage
+Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/TKDotSegment.framework` to an iOS project.
+
+```
+github "tbxark/TKDotSegment"
+```
+#### Manually
+1. Download and drop ```TKDotSegment.swift``` in your project.  
+2. Congratulations!  
+
+## Usage example
+
+```
+
+let titles = ["First", "Second", "Third", "Fourth"]
+       let  segment = TKDotSegmentControl(titles: titles, frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+       segment.dotColor = UIColor(red:1,  green:0.539,  blue:0.490, alpha:1)
+       segment.selectTitleColor = UIColor(red:1,  green:0.539,  blue:0.490, alpha:1)
+       segment.numOfDot = 4
+       segment.dotSpace = 6
+       segment.clickAction = { (index: Int, changeOffset: Bool) in
+           print("Segment Select Index: \(index)")
+       }
+
+```
+
+### Base
 
 |变量名|描述|Description|
 |---|---|---|
@@ -29,7 +78,7 @@ TKDotSegment 是一个带有圆点动画的 segment, 之前有写过这个效果
 1 . 改变 Index (change index)
 
 ```
-    func changeSelectedIndex(index: Int, animate: Bool = true) 
+    func changeSelectedIndex(index: Int, animate: Bool = true)
 ```
 
 2 . 接受 Index 变化事件 (index value change event)
@@ -47,37 +96,32 @@ TKDotSegmentAction = (index: Int,  internaliFlag: Bool) -> Void
 
 重写`PLDot` 的 `drawRect` 方法就可以了
 
-Overwrite the ` drawRect`  of ` PLDot ` 
+Overwrite the ` drawRect`  of ` PLDot `
 
 
 
-## CooaPod
+## Release History
 
-` pod 'TKDotSegment', '~> 1.0.0'`
+* 1.0.2
+  Complete basic functions, add Cocoapod and Carthage support
 
+## Contribute
 
-## License
+We would love for you to contribute to **TKDotSegment**, check the ``LICENSE`` file for more info.
 
-The MIT License (MIT)
+## Meta
 
-Copyright (c) 2015 TBXark
+TBXark – [@vfanx](https://twitter.com/vfanx) – tbxark@outlook.com
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Distributed under the MIT license. See ``LICENSE`` for more information.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+[https://github.com/TBXark](https://github.com/TBXark)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
+[swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
+[swift-url]: https://swift.org/
+[license-image]: https://img.shields.io/badge/License-MIT-blue.svg
+[license-url]: LICENSE
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[codebeat-image]: https://codebeat.co/badges/c19b47ea-2f9d-45df-8458-b2d952fe9dad
+[codebeat-url]: https://codebeat.co/projects/github-com-vsouza-awesomeios-com
