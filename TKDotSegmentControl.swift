@@ -9,7 +9,7 @@
 import UIKit
 
 /// 点击事件闭包
-typealias TKDotSegmentAction = (index: Int,  internaliFlag: Bool) -> Void
+typealias TKDotSegmentAction = (_ index: Int,  _ internaliFlag: Bool) -> Void
 
 
 
@@ -22,13 +22,13 @@ class TKDotSegmentControl: UIView {
         init(color: UIColor) {
             self.color = color
             super.init(frame: CGRect.zero)
-            backgroundColor = UIColor.clearColor()
+            backgroundColor = UIColor.clear
         }
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-        override func drawRect(rect: CGRect) {
-            let oval = UIBezierPath(ovalInRect: rect)
+        override func draw(_ rect: CGRect) {
+            let oval = UIBezierPath(ovalIn: rect)
             color.setFill()
             oval.fill()
         }
@@ -70,20 +70,20 @@ class TKDotSegmentControl: UIView {
     var selectTitleColor: UIColor? = TKDotSegmentControl.defaultColor {
         didSet {
             for btn in titleButtonArray {
-                btn.setTitleColor(selectTitleColor, forState: .Disabled)
+                btn.setTitleColor(selectTitleColor, for: .disabled)
             }
         }
     }
     /// 未选中时的颜色
-    var unSelectTitleColor: UIColor? = UIColor.darkGrayColor() {
+    var unSelectTitleColor: UIColor? = UIColor.darkGray {
         didSet {
             for btn in titleButtonArray {
-                btn.setTitleColor(selectTitleColor, forState: .Normal)
+                btn.setTitleColor(selectTitleColor, for: UIControlState())
             }
         }
     }
     /// 字体
-    var titleFont: UIFont = UIFont.systemFontOfSize(16) {
+    var titleFont: UIFont = UIFont.systemFont(ofSize: 16) {
         didSet {
             for btn in titleButtonArray {
                 btn.titleLabel?.font = titleFont
@@ -105,9 +105,9 @@ class TKDotSegmentControl: UIView {
     
     
     /// 被选中的 Index
-    private(set) var selectIndex: Int = -1
-    private var titleButtonArray = [UIButton]()
-    private var dotArray = [PLDot]()
+    fileprivate(set) var selectIndex: Int = -1
+    fileprivate var titleButtonArray = [UIButton]()
+    fileprivate var dotArray = [PLDot]()
     
     init(titles: [String], frame: CGRect) {
         self.titles = titles
@@ -123,16 +123,16 @@ class TKDotSegmentControl: UIView {
     
     
     
-    private func shareInit() {
+    fileprivate func shareInit() {
         guard titles.count > 0 else { return }
-        userInteractionEnabled = true
-        func makeButtonByName(name: String) -> UIButton {
-            let button = UIButton(type: .Custom)
-            button.setTitle(name, forState: .Normal)
-            button.setTitleColor(unSelectTitleColor, forState: .Normal)
-            button.setTitleColor(selectTitleColor, forState: .Disabled)
+        isUserInteractionEnabled = true
+        func makeButtonByName(_ name: String) -> UIButton {
+            let button = UIButton(type: .custom)
+            button.setTitle(name, for: UIControlState())
+            button.setTitleColor(unSelectTitleColor, for: UIControlState())
+            button.setTitleColor(selectTitleColor, for: .disabled)
             button.titleLabel?.font = titleFont
-            button.addTarget(self, action: #selector(TKDotSegmentControl.titleButtonClick(_:)), forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(TKDotSegmentControl.titleButtonClick(_:)), for: .touchUpInside)
             return button
         }
         
@@ -140,7 +140,7 @@ class TKDotSegmentControl: UIView {
         let height = bounds.height
         var buttonFrame = CGRect(x: 0, y: 0, width: width, height: height)
         var titleButtonArrayTemp = [UIButton]()
-        for (i, btnTitle) in titles.enumerate() {
+        for (i, btnTitle) in titles.enumerated() {
             buttonFrame.origin.x = width * CGFloat(i)
             let button = makeButtonByName(btnTitle)
             button.frame = buttonFrame
@@ -161,7 +161,7 @@ class TKDotSegmentControl: UIView {
     }
     
     
-    private func resetSegment() {
+    fileprivate func resetSegment() {
         subviews.forEach { $0.removeFromSuperview() }
         dotArray = []
         titleButtonArray = []
@@ -176,12 +176,12 @@ class TKDotSegmentControl: UIView {
 extension TKDotSegmentControl {
     
     
-    @objc private func titleButtonClick(button: UIButton) {
+    @objc fileprivate func titleButtonClick(_ button: UIButton) {
         changeSelectedIndex(button.tag, internaliFlag: true)
         
     }
     
-    func changeSelectedIndex(index: Int, animate: Bool = true) {
+    func changeSelectedIndex(_ index: Int, animate: Bool = true) {
         changeSelectedIndex(index, internaliFlag: false, animate: true)
     }
     
@@ -193,23 +193,24 @@ extension TKDotSegmentControl {
      - parameter internaliFlag: 是否内部点击触发的标志位
      - parameter animate:       是否需要动画效果
      */
-    private func changeSelectedIndex(index: Int, internaliFlag: Bool, animate: Bool = true) {
-        if selectIndex >= 0 {titleButtonArray[selectIndex].enabled = true }
+    fileprivate func changeSelectedIndex(_ index: Int, internaliFlag: Bool, animate: Bool = true) {
+        if selectIndex >= 0 {titleButtonArray[selectIndex].isEnabled = true }
         let flag = index > selectIndex
         guard index >= 0 && index < titles.count else { return }
-        titleButtonArray[index].enabled = false
+        titleButtonArray[index].isEnabled = false
         selectIndex = index
-        self.clickAction?(index: index, internaliFlag: internaliFlag)
+        self.clickAction?(index, internaliFlag)
         changeDotFrameWithIndex(selectIndex, animate: animate, toRight: flag)
     }
     
-    private func changeDotFrameWithIndex(index: Int, animate: Bool, toRight: Bool) {
+    fileprivate func changeDotFrameWithIndex(_ index: Int, animate: Bool, toRight: Bool) {
         let rect = titleButtonArray[index].frame
         let num = CGFloat(numOfDot)
         var s = dotSpace
         if s < 0 { s = (rect.width - dotDiameter * num) / (num + 1) }
         let y = rect.origin.y + rect.height - dotDiameter - 2
-        let beginSpace = (rect.width - (num * dotDiameter) - ((num + 1) * s))/2.0
+        let w = num * dotDiameter
+        let beginSpace = (rect.width - w - ((num + 1) * s))/2.0
         let originx = rect.origin.x + beginSpace
         var bRect = CGRect(x: s, y: y, width: dotDiameter, height: dotDiameter)
         
@@ -218,7 +219,7 @@ extension TKDotSegmentControl {
             let dot = dotArray[index]
             bRect.origin.x = s * CGFloat(index + 1) + dotDiameter * CGFloat(index) + originx
             if animate {
-                UIView.animateWithDuration(0.2, delay: Double(i) * 0.1, options: .CurveLinear, animations: {
+                UIView.animate(withDuration: 0.2, delay: Double(i) * 0.1, options: .curveLinear, animations: {
                     dot.frame = bRect
                     }, completion: nil)
             } else {
