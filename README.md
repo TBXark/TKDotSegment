@@ -14,7 +14,8 @@
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.3
+- Xcode 8.0
+- Swift 3.0
 
 ## Installation
 
@@ -101,6 +102,9 @@ Overwrite the ` drawRect`  of ` PLDot `
 
 
 ## Release History
+
+* 1.3.1
+  Support swift 3.0
 
 * 1.0.2
   Complete basic functions, add Cocoapod and Carthage support
