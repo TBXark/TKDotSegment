@@ -4,28 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>TKDotSegment iOS.xcscheme_^#shared#^_</key>
+		<key>TKDotSegment.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>TKDotSegment.xcscheme</key>
+		<key>TKDotSegmentDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>6A0F231F1CBBB14700BD2FBF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6A9104031D53A6580009451B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
 		</dict>
 	</dict>
 </dict>
