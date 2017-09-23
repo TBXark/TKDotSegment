@@ -3,8 +3,8 @@
 
 [![Swift Version][swift-image]][swift-url]
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/TBXark/TKDotSegment/master/LICENSE)
-[![CocoaPods](http://img.shields.io/cocoapods/v/TKDotSegment.svg?style=flat)](http://cocoapods.org/?q= TKDotSegment)
-[![CocoaPods](http://img.shields.io/cocoapods/p/TKDotSegment.svg?style=flat)](http://cocoapods.org/?q= TKDotSegment)
+[![CocoaPods](http://img.shields.io/cocoapods/v/TKDotSegment.svg?style=flat)](http://cocoapods.org/?q=TKDotSegment)
+[![CocoaPods](http://img.shields.io/cocoapods/p/TKDotSegment.svg?style=flat)](http://cocoapods.org/?q=TKDotSegment)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 
@@ -14,8 +14,8 @@
 ## Requirements
 
 - iOS 8.0+
-- Xcode 8.0
-- Swift 3.0
+- Xcode 9.0
+- Swift 4.0
 
 ## Installation
 
@@ -41,7 +41,7 @@ Create a `Cartfile` that lists the framework and run `carthage update`. Follow t
 github "tbxark/TKDotSegment"
 ```
 #### Manually
-1. Download and drop ```TKDotSegment.swift``` in your project.  
+1. Download and drop ```TKDotSegmentControl.swift``` in your project.  
 2. Congratulations!  
 
 ## Usage example
@@ -102,6 +102,9 @@ Overwrite the ` drawRect`  of ` PLDot `
 
 
 ## Release History
+
+* 1.4.0
+  Support swift 4.0
 
 * 1.3.1
   Support swift 3.0

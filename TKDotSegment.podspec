@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TKDotSegment"
-  s.version      = "1.1.0"
+  s.version      = "1.4.0"
   s.summary      = "TKDotSegment is a segment with dot animation "
   s.license      = { :type => 'MIT License', :file => 'LICENSE' } # 协议
   s.homepage     = "https://github.com/TBXark/TKDotSegment"
